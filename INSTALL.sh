@@ -58,3 +58,7 @@ git clone --recursive https://github.com/caffe2/caffe2.git
 cd caffe2 && make
 cd build && sudo make install
 python -c 'from caffe2.python import core' 2>/dev/null && echo "Success" || echo "Failure"
+
+# If Caffe2 still fails to run after all dependencies are resolved, try open a Python shell and type "from caffe2.python import core"
+# One common error might be "ImportError: No module named past.builtins", try the following if that's the case 
+sudo pip install future
