@@ -1,4 +1,5 @@
 # Build dependency for Ubuntu 14.04 
+# Ref: https://caffe2.ai/docs/getting-started.html?platform=ubuntu&configuration=compile
 sudo apt-get update
 sudo apt-get install -y --no-install-recommends \
       build-essential \
@@ -10,12 +11,6 @@ sudo apt-get install -y --no-install-recommends \
       python-dev \
       python-pip                          
 sudo pip install numpy protobuf
-
-# If fortran is not installed
-sudo apt-get install libatlas-base-dev gfortran
-
-# If cython version is below 0.23
-#sudo pip install --upgrade cython 
 
 # Optional dependency for Ubuntu 14.04
 sudo apt-get install -y --no-install-recommends libgflags2
@@ -46,7 +41,15 @@ sudo pip install \
       six \
       tornado
 
+# If scipy fails to get installed because fortran is not installed, try
+# Ref: https://stackoverflow.com/questions/26575587/cant-install-scipy-through-pip
+sudo apt-get install libatlas-base-dev gfortran
+
+# If cython version is below 0.23
+#sudo pip install --upgrade cython 
+
 # If Jupyter fails to get installed, try
+# Ref: http://jupyter.org/install.html
 python3 -m pip install --upgrade pip
 python3 -m pip install jupyter
 
@@ -61,4 +64,5 @@ python -c 'from caffe2.python import core' 2>/dev/null && echo "Success" || echo
 
 # If Caffe2 still fails to run after all dependencies are resolved, try open a Python shell and type "from caffe2.python import core"
 # One common error might be "ImportError: No module named past.builtins", try the following if that's the case 
+# Ref: https://github.com/caffe2/caffe2/issues/712
 sudo pip install future
