@@ -15,7 +15,7 @@ sudo pip install numpy protobuf
 sudo apt-get install libatlas-base-dev gfortran
 
 # If cython version is below 0.23
-sudo pip install --upgrade cython
+#sudo pip install --upgrade cython 
 
 # Optional dependency for Ubuntu 14.04
 sudo apt-get install -y --no-install-recommends libgflags2
@@ -45,6 +45,13 @@ sudo pip install \
       setuptools \
       six \
       tornado
+
+# If Jupyter fails to get installed, try
+python3 -m pip install --upgrade pip
+python3 -m pip install jupyter
+
+# If scikit-image fails to get installed, try
+sudo apt-get install python-skimage 
 
 # Build and install Caffe2
 git clone --recursive https://github.com/caffe2/caffe2.git
