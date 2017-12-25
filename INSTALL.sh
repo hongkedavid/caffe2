@@ -11,6 +11,14 @@ sudo apt-get install -y --no-install-recommends \
       python-pip                          
 sudo pip install numpy protobuf
 
+# If fortran is not installed
+sudo apt-get install libatlas-base-dev gfortran
+
+# If cython version is below 0.23
+sudo pip install --upgrade cython
+
+# Optional dependency for Ubuntu 14.04
+sudo apt-get install -y --no-install-recommends libgflags2
 sudo apt-get install -y --no-install-recommends \
       libgtest-dev \
       libiomp-dev \
