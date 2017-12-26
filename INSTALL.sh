@@ -59,7 +59,7 @@ sudo apt-get install python-skimage
 # Build and install Caffe2
 git clone --recursive https://github.com/caffe2/caffe2.git
 cd caffe2 && make
-cd build && sudo make install
+cd build && sudo make install 
 python -c 'from caffe2.python import core' 2>/dev/null && echo "Success" || echo "Failure"
 
 # If Caffe2 still fails to run after all dependencies are resolved, try open a Python shell and type "from caffe2.python import core"
@@ -70,9 +70,18 @@ sudo pip install future
 # To enable Caffe2 outside build/, make sure the following command is run or added to .bashrc or .bash_profile
 export PYTHONPATH=/usr/local
 
-# Install ONNX
-sudo apt-get install libprotobuf-java protobuf-compiler
+# Update protobuf if its version < 2.6.1
+# Ref: https://github.com/onnx/onnx/issues/197
 apt-cache policy protobuf-compiler
 
+# Clone latest version of Protocol Buffer from GitHub
+# Ref: https://github.com/google/protobuf/blob/master/src/README.md
+git clone https://github.com/google/protobuf/
+./autogen.sh && ./configure
+make && make check
+sudo make install
+sudo ldconfig
+
+# Install ONNX and its Caffe2 bindings
 sudo pip install onnx
 sudo pip install onnx-caffe2
