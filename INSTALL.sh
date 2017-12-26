@@ -53,7 +53,7 @@ sudo apt-get install libatlas-base-dev gfortran
 python3 -m pip install --upgrade pip
 python3 -m pip install jupyter
 
-# If scikit-image fails to get installed, try
+# If scikit-image fails to get installed by pip, try
 sudo apt-get install python-skimage 
 
 # Build and install Caffe2
@@ -66,3 +66,13 @@ python -c 'from caffe2.python import core' 2>/dev/null && echo "Success" || echo
 # One common error might be "ImportError: No module named past.builtins", try the following if that's the case 
 # Ref: https://github.com/caffe2/caffe2/issues/712
 sudo pip install future
+
+# To enable Caffe2 outside build/, make sure the following command is run or added to .bashrc or .bash_profile
+export PYTHONPATH=/usr/local
+
+# Install ONNX
+sudo apt-get install libprotobuf-java protobuf-compiler
+apt-cache policy protobuf-compiler
+
+sudo pip install onnx
+sudo pip install onnx-caffe2
