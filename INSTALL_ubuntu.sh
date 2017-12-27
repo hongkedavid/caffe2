@@ -82,6 +82,15 @@ make && make check
 sudo make install
 sudo ldconfig
 
-# Install ONNX and its Caffe2 bindings
-sudo pip install onnx
+# Error with for running ONNX installed by pip
+# sudo pip install onnx
+
+# Install ONNX
+conda install -c conda-forge onnx
+
+# Error with development build: python -c "import setuptools, tokenize;__file__='onnx-caffe2/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" develop --no-deps" failed with error code 1
+# git clone  https://github.com/onnx/onnx-caffe2.git
+# sudo pip install -e onnx-caffe2/
+
+# Install ONNX Caffe2 bindings
 sudo pip install onnx-caffe2
