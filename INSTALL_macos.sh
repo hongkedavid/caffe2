@@ -40,6 +40,8 @@ pip install onnx-caffe2
 # pip install -e onnx-caffe2/
 
 # Run onnx-caffe2 
+python -m caffe2.python.models.download squeezenet
+
 # Ref: https://github.com/onnx/tutorials/blob/master/tutorials/Caffe2OnnxExport.ipynb
 convert-caffe2-to-onnx predict_net.pb --caffe2-init-net init_net.pb --value-info '{"data": [1, [1, 3, 224, 224]]}' -o squeezenet.onnx
 
