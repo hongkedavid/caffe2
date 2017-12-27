@@ -38,3 +38,7 @@ pip install onnx-caffe2
 # Error with development build: python -c "import setuptools, tokenize;__file__='/Users/kehong/onnx-caffe2/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" develop --no-deps" failed with error code 1
 # git clone  https://github.com/onnx/onnx-caffe2.git
 # pip install -e onnx-caffe2/
+
+# Run onnx-caffe2 
+# Ref: https://github.com/onnx/tutorials/blob/master/tutorials/Caffe2OnnxExport.ipynb
+convert-caffe2-to-onnx predict_net.pb --caffe2-init-net init_net.pb --value-info '{"data": [1, [1, 3, 224, 224]]}' -o sqeezenet.onnx
