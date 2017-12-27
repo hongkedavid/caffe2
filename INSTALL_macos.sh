@@ -28,3 +28,10 @@ python -c 'from caffe2.python import core' 2>/dev/null && echo "Success" || echo
 
 # To enable Caffe2 outside build/, make sure the following command is run or added to .bashrc or .bash_profile
 export PYTHONPATH=/usr/local
+
+# Install ONNX
+conda install -c conda-forge onnx
+
+# Install ONNX Caffe2 bindings
+git clone  https://github.com/onnx/onnx-caffe2.git
+pip install -e onnx-caffe2/
