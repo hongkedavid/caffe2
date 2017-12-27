@@ -35,7 +35,7 @@ conda install -c conda-forge onnx
 # Install ONNX Caffe2 bindings
 pip install onnx-caffe2
 
-# Error with development build: python -c "import setuptools, tokenize;__file__='/Users/kehong/onnx-caffe2/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" develop --no-deps" failed with error code 1
+# Error with development build: python -c "import setuptools, tokenize;__file__='onnx-caffe2/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" develop --no-deps" failed with error code 1
 # git clone  https://github.com/onnx/onnx-caffe2.git
 # pip install -e onnx-caffe2/
 
