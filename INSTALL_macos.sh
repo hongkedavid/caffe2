@@ -47,3 +47,10 @@ convert-caffe2-to-onnx predict_net.pb --caffe2-init-net init_net.pb --value-info
 
 # Ref: https://github.com/onnx/tutorials/blob/master/tutorials/OnnxCaffe2Import.ipynb
 convert-onnx-to-caffe2 squeezenet.onnx --output predict_net_new.pb --init-net-output init_net_new.pb
+
+# Install ONNX TensorFlow bindings
+pip install onnx-tf
+
+# Run onnx-tf
+git clone https://github.com/onnx/onnx-tensorflow
+python -m unittest discover test/backend
